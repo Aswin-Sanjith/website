@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<style>
+.center
+{
+margin-left:600px;
+margin-top:200px;
+}
+
+#btn
+{
+border:2px solid grey;
+margin-top:35px;
+margin-left:155px;
+}
+
+
+.form-label
+{
+text-align:center;
+}
+}
+</style>
+
+<script type="text/javascript">
+function allLetter(inputtxt)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(inputtxt.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Name:Character only');
+return false;
+}
+}
+function alphanumeric()
+{ 
+	var inputtxt=document.getElementById("pincode").value;
+var letters = /^[0-9a-zA-Z]+$/;
+if(inputtxt.match(letters))
+{
+	document.myform.pincode.focus();
+	return true;
+}
+else
+{
+	document.myform.pincode.focus();
+alert('Please input alphanumeric characters only');
+return false;
+}
+}
+</script>
+<meta charset="ISO-8859-1">
+<title>site</title>
+</head>
+<body onload='document.myform.pincode.focus()'>
+<div class="container-fluid" style="width:100%; background-color:black;">
+  <div class="row" style="background-color:black;">
+    <div class="col"  >
+    </div>
+    <div class="col-5">
+      <nav class="navbar navbar-expand-sm navbar-dark justify-content-center" >
+ <ul class="navbar-nav" >
+<li class="nav-item">
+    <a class="nav-link" href="NewFile.html">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">ABOUT</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">SERVICES</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">CONTACT</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="NewFile1.html">LOGIN</a>
+  </li>
+  </ul>
+</nav>
+    </div>
+    <div class="col text-end" >
+     <span id="txt" style="color:white"></span>  
+<script>  
+window.onload=function(){getTime();}  
+function getTime(){  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+// add a zero in front of numbers<10  
+m=checkTime(m);  
+s=checkTime(s);  
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+setTimeout(function(){getTime()},1000);  
+}  
+//setInterval("getTime()",1000);//another way  
+function checkTime(i){  
+if (i<10){  
+  i="0" + i;  
+ }  
+return i;  
+}  
+</script>  
+    </div>
+  </div>
+</div>
+<form name="myform">
+<div class="center">
+<div class="container" style="margin:auto;">
+
+<div class="row">
+<div class="col">
+  <label for="formGroupExampleInput" class="form-label" style="margin-left:150px;"  >Name</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Name" style="width:400px"  name="name" required>
+</div>
+</div>
+
+</div>
+<div class="row ">
+<div class="col">
+  <label for="formGroupExampleInput2" class="form-label" style="margin-left:130px" >Contact Number</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Contact Number" style="width:400px" name="Contact_Number" required>
+</div>
+</div>
+<div class="row ">
+<div class="col">
+  <label for="formGroupExampleInput2" class="form-label" style="margin-left:150px" >District</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="District" style="width:400px" name="District" required>
+</div>
+</div>
+<div class="row ">
+<div class="col">
+  <label for="formGroupExampleInput2" class="form-label" style="margin-left:150px" >pincode</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Pincode" style="width:400px" name="pincode" onkeyup="alphanumeric()" required>
+</div>
+</div>
+   <button type="submit" class="btn btn-light" id="btn"  onclick="allLetter(document.myform.name)">Submit</button>
+</div>
+</form>
+</body>
+</html>

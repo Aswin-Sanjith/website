@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<style>
+.center
+{
+margin-left:600px;
+margin-top:100px;
+}
+
+#btn
+{
+border:2px solid grey;
+margin-top:35px;
+margin-left:155px;
+}
+#btn1
+{
+border:2px solid grey;
+margin-top:35px;
+margin-right:100px;
+}
+
+
+.form-label
+{
+text-align:center;
+}
+}
+</style>
+<script>  
+$(document).ready(function(){
+	  $("#btn1").click(function(){
+	    $("form").animate({height: 'toggle'},"slow");
+	  });
+	});
+</script> 
+ <script type="text/javascript">
+</script>
+
+<script type="text/javascript">
+
+function matchpass(){  
+	var x=document.myform.email.value;  
+	var atposition=x.indexOf("@");  
+	var dotposition=x.lastIndexOf(".");  
+	if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)
+	{  
+	  alert("Please enter a valid e-mail address \n eg:francis@outlook.com");  
+	  return false;
+	  } 
+	var firstpassword=document.myform.password.value;  
+	var secondpassword=document.myform.password2.value;  
+	  
+	if(firstpassword==secondpassword){
+			    alert("Welcome Mr." + $("#name").val()+" Registration Successfull");
+			    $("title").text($("#name").val());
+	return true;  
+	}  
+	else{  
+	alert("password must be same!");  
+	return false;  
+	}  
+
+}
+	
+</script>
+<meta charset="ISO-8859-1">
+<title>SignUp</title>
+<link rel="icon" href="img/icon3.png">
+</head>
+<body>
+<div class="container-fluid" style="width:100%; background-color:black;">
+  <div class="row" style="background-color:black;">
+    <div class="col"  >
+    </div>
+    <div class="col-5">
+      <nav class="navbar navbar-expand-sm navbar-dark justify-content-center" >
+ <ul class="navbar-nav" >
+<li class="nav-item">
+    <a class="nav-link" href="NewFile.html">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">ABOUT</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">SERVICES</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">CONTACT</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="NewFile1.html">LOGIN</a>
+  </li>
+  </ul>
+</nav>
+    </div>
+    <div class="col text-end" >
+     <span id="txt" style="color:white"></span>  
+<script>  
+window.onload=function(){getTime();}  
+function getTime(){  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+// add a zero in front of numbers<10  
+m=checkTime(m);  
+s=checkTime(s);  
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+setTimeout(function(){getTime()},1000);  
+}  
+//setInterval("getTime()",1000);//another way  
+function checkTime(i){  
+if (i<10){  
+  i="0" + i;  
+ }  
+return i;  
+}  
+</script>  
+    </div>
+  </div>
+</div>
+<div class="alert alert-dark alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Users cannot Create two Accounts</strong> 
+  </div>
+<button type="button"  class="btn btn-light" style="float:right" id="btn1">CLICK</button>
+<form onsubmit="return matchpass();" name="myform" id="form" action="regservlet" method="POST">
+<div class="center">
+<div class="container">
+<div class="row">
+<div class="col">
+  <label for="formGroupExampleInput" class="form-label" style="margin-left:130px; "  >Enter Name</label><span style="color: red !important;  display: inline;" >*</span>  
+  <input type="text" class="form-control" id="name" placeholder="Name" style="width:400px"  name="name" required>
+</div>
+</div>
+<div class="row ">
+<div class="col">
+<label for="country" class="form-label" style="margin-left:130px;" >Country</label><span style="color: red !important;  display: inline;"  >*</span>      
+        
+            <select id="country" name="country" class="form-control" style="width:400px"  >
+               <option>India</option> 
+               <option>USA</option>  
+               <option>UK</option>
+               <option>Other</option>
+            </select>
+</div>
+</div>
+<div class="row">
+<div class="col">
+  <label for="formGroupExampleInput" class="form-label" style="margin-left:130px;"  >Enter E-mail</label><span style="color: red !important;  display: inline;" >*</span>  
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="E-mail id" style="width:400px"  name="email" required>
+</div>
+</div>
+<div class="row ">
+<div class="col">
+  <label for="formGroupExampleInput2" class="form-label" style="margin-left:150px" onkeypress="runPassword(strPassword, strFieldID)" >Password</label><span style="color: red !important;  display: inline;" >*</span>  
+  <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="password" style="width:400px" name="pwd" required>
+</div>
+</div>
+<div class="row ">
+<div class="col">
+  <label for="formGroupExampleInput2" class="form-label" style="margin-left:120px" >Re-Enter Password</label><span style="color: red !important;  display: inline;" >*</span>  
+  <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="password" style="width:400px" name="cpwd" required>
+</div>
+</div>
+   <button type="submit" class="btn btn-light" id="btn"  >Submit</button>
+</div>
+</div>
+</form>
+
+</body>
+</html>
